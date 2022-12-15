@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman</title>
+    <!-- <link rel="stylesheet" href="../templates/home.css" /> -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/home.css') }}"
+    />
+  </head>
+  <body>
+    <div class="desktopBack">
+        <div class="frameOne">
+            <div class="contentBlock">
+                <div class="title">
+                  <center><h1><span style="color: #ffc700;">HANGMAN</span></h1></center>
+                </div>
+                <div class="subTitle">
+                  <center><h2>
+                    Lietuvių žaidimas nušauti ar <span style="color: #ffc700;">pakarti </span>rašistą <span style="color: #ffc700;">Putiną</span>.
+                    </h2></center>
+                </div>
+                <div class="start">
+                    <img src="{{url_for('static',filename = 'images/ata.jpg')}}" alt="flag" width="50%" height="50%"></img>
+                </div>
+                <div class="infoBlock"></div>
+            </div>
+            <div class="frameTwo"> 
+                <div class="black">
+                    <div class="button">
+                        <a href="{{url_for('login')}}">
+                            <input
+                              class="formButton"
+                              type="button"
+                              name="prisijungti"
+                              value="Prisijungti"
+                            />
+                          </a>
+                          <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+  </body>
+</html>

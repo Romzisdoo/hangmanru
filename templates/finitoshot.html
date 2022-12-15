@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Finito Shot</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <header class="myHeader"></header>
+    <nav class="menubar">
+      <ul>
+        <li class="active">
+          <a href="{{ url_for('hangman') }}">ŽAISTI DAR</a>
+        </li>
+        <li class="active">
+          <a href="#">STATISTIKA</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <div class="pageBlock">
+        <center>
+          <h1>Jūs atspėjote žodį</h1>
+          <h2>Nuosprendis: Putiną nušauti!</h2>
+          <image
+            src="{{url_for('static',filename = 'images/finito_shot.jpg')}}"
+            height="600"
+          ></image>
+          <h1 style="color: red;">Nuosprendis įvykdytas!</h1>
+        </center>
+      </div>
+    </main>
+
+    <footer class="footerstyle">
+      <ul>
+        <div><p>© Copyright 2022 RomzisDoo</p></div>
+      </ul>
+    </footer>
+  </body>
+</html>

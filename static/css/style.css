@@ -1,0 +1,231 @@
+/* HEADER STILE */
+.myHeader {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 32px;
+  background-color: white;
+  text-align: center;
+}
+
+/* MENU BAR STYLE */
+.menubar {
+  position: fixed;
+  top: 32px;
+  width: 100%;
+  height: 64px;
+  background-color: rgb(1, 87, 57);
+  text-align: center;
+}
+.menubar ul {
+  display: inline-flex;
+  list-style: none;
+  color: #fff;
+}
+
+.menubar ul li {
+  width: 120px;
+  margin: 1px;
+  padding: 10px;
+}
+.menubar ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.active,
+.menubar ul li:hover {
+  background: #ffc700;
+  border-radius: 3px;
+}
+.sub-menu-1 {
+  display: none;
+}
+.menubar ul li:hover .sub-menu-1 {
+  display: block;
+  position: absolute;
+  background: #002d13;
+  margin-top: 15px;
+  margin-left: -15px;
+}
+
+/* MAIN STYLE */
+/* ALL MAIN  */
+.pageBlock {
+  /* top: 96px; */
+  height: 1500px;
+  width: auto;
+  margin-top: 96px;
+  border: #002d13 solid;
+}
+/* BANER  */
+.pageAdBaner {
+  height: 96px;
+  width: auto;
+  flex-flow: nowrap;
+  top: 96px;
+  border: rgb(1, 87, 57) solid;
+}
+
+.advertising {
+  height: 90px;
+  width: 970px;
+  border: #002d13;
+  margin-left: 25%;
+  background-color: #d2222d;
+}
+
+/* PAGE TITLE  */
+.pageTitle {
+  height: 96px;
+  width: auto;
+  top: 192px;
+  border: #002d13 solid;
+}
+
+/* GAME IMAGE 1 2 3 BLOCK  */
+.hangmanBlock {
+  height: 448px;
+  width: auto;
+  top: 256px;
+  border: #d2222d solid;
+}
+/* IVESTOS RAIDES LAUKO PRADZIA */
+.wordsField {
+  top: 704px;
+  display: inline-flex;
+  height: 128px;
+  width: 100%;
+
+  border: #002d13 solid;
+  background-color: #ffc700;
+}
+
+.inputChar {
+  margin-left: 10px;
+  display: inline-flex;
+}
+
+.enter {
+  border-radius: 3px;
+  /* background-color: #002d13; */
+  background: #002d13;
+  color: #fff;
+}
+.letterList {
+  margin-top: 30px;
+}
+.wordInLetter {
+  margin-left: 30%;
+  margin-top: 30px;
+  width: 30%;
+  font-size: 40px;
+}
+input[type='text'] {
+  width: 3%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  /* background-color: rgb(1, 87, 57); */
+  color: white;
+}
+
+/* .inputLetter {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+}
+/* IVESTOS RAIDES LAUKO PABAIGA  */
+.myGameKeyboard {
+  top: 900px;
+
+  width: 100%;
+  height: 64px;
+  background-color: rgb(1, 87, 57);
+  text-align: center;
+}
+
+.myGameKeyboard ul {
+  /* margin-left: 10%;
+  width: 80%; */
+  display: inline-flex;
+  list-style: none;
+  color: #fff;
+}
+
+.myGameKeyboard ul li {
+  width: 32px;
+  margin: 1px;
+  padding: 10px;
+}
+.myGameKeyboard ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+/* .used, */
+.myGameKeyboard ul li:hover {
+  background: #ffc700;
+  border-radius: 3px;
+}
+
+.myGameKeyboard ul li:focus {
+  background-color: green;
+}
+
+.myGameKeyboard ul li:active {
+  background-color: #d2222d;
+}
+
+.myGameKeyboard ul li:visited {
+  background-color: black;
+}
+/* BANDYMAS1 */
+
+.myGameKeyboard ul li:checked + span {
+  background: #444;
+  color: #fff;
+}
+
+button {
+  background-color: blue;
+}
+button:focus {
+  background-color: yellow;
+}
+button:active {
+  background-color: green;
+}
+/* PABAIGA */
+
+/* FOOTER STILE */
+.footerstyle {
+  height: 64px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: #002d13;
+  color: #fff;
+  text-align: center;
+}
+
+/* GAME BLOCK  */
+
+.hangmanBlock {
+  display: flex;
+  /* background-color: rgb(116, 29, 29); */
+  flex-flow: column wrap;
+  flex-direction: row;
+  border: #030608 solid;
+  background: rgb(1, 87, 57);
+}
+
+.gameBlOne {
+  background-color: whitesmoke;
+  flex: 50px;
+  height: auto;
+  /* min-height: 150px; */
+  width: 50px;
+  /* min-width: 50px; */
+  margin: 5px;
+}

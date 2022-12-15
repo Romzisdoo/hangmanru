@@ -1,0 +1,57 @@
+/* COLOR SCHEME */
+/* Tamsiai zalia: #002d13 */
+/* geltona #ffc700 */
+/* sviesiai zalia rgb(1,87,57) */
+/* raudona: #d2222d, */
+/* http://2019.factor.ca/ */
+
+.desktopBack {
+  /* background-color: #002d13; */
+  height: 100%;
+  min-height: 920px;
+  width: 100%;
+  background-image: url('../static/images/ata.jpg');
+
+  /* src="{{url_for('static',filename = 'images/ata.jpg')}}" alt="flag" width="1400" height="920" */
+}
+
+/* body {
+  background-image: url('../static/images/ata.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: 100% 100%;
+} */
+
+body {
+  background-image: url('../static/images/ata.jpg');
+  background-position: center center;
+}
+
+.start {
+  background-position: center center;
+  margin-left: 30%;
+  height: 100%;
+}
+
+.title {
+  margin-top: 5%;
+}
+.black {
+  border: solid black;
+  background-color: black;
+  height: 120px;
+  width: 25%;
+  margin-left: 35%;
+  margin-top: 0%;
+}
+
+.formButton {
+  margin-top: 20px;
+  height: 40px;
+  width: 25%;
+  background-color: #d2222d;
+  color: #ffc700;
+  font-weight: bold;
+  border-radius: 25px;
+  margin-left: 35%;
+}

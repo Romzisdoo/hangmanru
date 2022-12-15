@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hangman</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <header class="myHeader"></header>
+    <nav class="menubar">
+      <ul>
+        <li class="active">
+          <a href="{{ url_for('hangman') }}">ŽAISTI DAR</a>
+        </li>
+        <li class="active">
+          <a href="#">STATISTIKA</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <div class="pageBlock">
+        <div class="pageAdBaner">
+          <div class="advertising">ADVERTISING (970x90)</div>
+        </div>
+        <!-- HANGMAN BLOCK PRADZIA -->
+        <div class="pageTitle">
+          <h2>
+            <center><strong>HANGMAN</strong></center>
+          </h2>
+          <p>
+            <center>
+              You can shot or hang Putin and russism if speak in lithuanian!
+            </center>
+          </p>
+        </div>
+        <div class="hangmanBlock">
+          <div class="gameBlOne">
+            Crimes:
+            <div>
+              <image
+                target="_blank"
+                src="{{url_for('static',filename = 'images/smolensk.jpg')}}"
+                width="48%"
+                height="48%"
+              ></image>
+              <image
+                target="_blank"
+                src="{{url_for('static',filename = 'images/georgia.jpg')}}"
+                width="48%"
+                height="48%"
+              ></image>
+            </div>
+            <div>
+              <image
+                target="_blank"
+                src="{{url_for('static',filename = 'images/litvinenko.jpg')}}"
+                width="48%"
+                height="48%"
+              ></image>
+              <image
+                target="_blank"
+                src="{{url_for('static',filename = 'images/ukraina.jpg')}}"
+                width="48%"
+                height="48%"
+              ></image>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="gameBlOne" style="background-color: rgb(1, 87, 57);">
+            <center><img src="{{tries}}" /></center>
+          </div>
+          <div class="gameBlOne">
+            History:
+            <div>
+              <image
+                target="_blank"
+                src="{{url_for('static',filename = 'images/mussolini.jpg')}}"
+                width="48%"
+                height="48%"
+              ></image>
+              <image
+                target="_blank"
+                src="{{url_for('static',filename = 'images/hussein.webp')}}"
+                width="48%"
+                height="48%"
+              ></image>
+            </div>
+            <div>
+              <image
+                target="_blank"
+                src="{{url_for('static',filename = 'images/Gaddafi.webp')}}"
+                width="48%"
+                height="48%"
+              ></image>
+              <image
+                target="_blank"
+                src="{{url_for('static',filename = 'images/who.png')}}"
+                width="48%"
+                height="48%"
+              ></image>
+            </div>
+          </div>
+        </div>
+        <!-- HANGMAN BLOCK PABAIGA -->
+        <!-- WORD FIELD PRADZIA -->
+        <!--GAL PADES https://www.geeksforgeeks.org/retrieving-html-from-data-using-flask/ -->
+        <div class="wordsField">
+          <div class="inputChar">
+            <form action="{{ url_for('add_char') }}" method="post">
+              <div>
+                <label>Įveskite raidę:</label>
+                <div>
+                  <input type="text" maxlength="1" name="letter" />
+                </div>
+              </div>
+              <p><button class="enter" type="submit">Patvirtinti</button></p>
+            </form>
+          </div>
+          <div class="wordInLetter">
+            {% for item in to_display %}
+            <span>{{item}}</span>
+            {% endfor %}
+          </div>
+          <div class="letterList">
+            Nepanaudotos raidės: {% for i in word_set %}
+            <span>{{i}}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- WORD FIELD PABAIGA -->
+        <!-- KEYBOARD PRADZIA  -->
+        <!-- <div class="myGameKeyboard">
+          <ul>
+            <li id="abc01" class="button" data-key="A" type="checkbox">
+              <span>A</span>
+            </li>
+            <li id="abc02" class="button" type="checkbox"><span>Ą</span></li>
+            <li id="abc03" class="button" type="checkbox"><span>B</span></li>
+            <li id="abc04" class="button" type="checkbox"><span>C</span></li>
+            <li id="abc05" class="button" type="checkbox">
+              <span>Č</span>
+            </li>
+            <li id="abc06" class="button" type="checkbox">
+              <span>D</span>
+            </li>
+            <li id="abc07" class="button" type="checkbox">
+              <span>E</span>
+            </li>
+            <li id="abc08" class="button" type="checkbox">
+              <span>Ę</span>
+            </li>
+            <li id="abc09" class="button" type="checkbox">
+              <span>Ė</span>
+            </li>
+            <li id="abc10" class="button" type="checkbox">
+              <span>F</span>
+            </li>
+            <li id="abc11" class="button" type="checkbox">
+              <span>G</span>
+            </li>
+            <li id="abc12" class="button" type="checkbox">
+              <span>H</span>
+            </li>
+            <li id="abc12" class="button" type="checkbox">
+              <span>I</span>
+            </li>
+            <li id="abc13" class="button" type="checkbox">
+              <span>Į</span>
+            </li>
+            <li id="abc14" class="button" type="checkbox">
+              <span>Y</span>
+            </li>
+            <li id="abc15" class="button" type="checkbox">
+              <span>J</span>
+            </li>
+            <li id="abc16" class="button" type="checkbox">
+              <span>K</span>
+            </li>
+            <li id="abc17" class="button" type="checkbox">
+              <span>L</span>
+            </li>
+            <li id="abc18" class="button" type="checkbox">
+              <span>M</span>
+            </li>
+            <li id="abc19" class="button" type="checkbox">
+              <span>N</span>
+            </li>
+            <li id="abc20" class="button" type="checkbox">
+              <span>O</span>
+            </li>
+            <li id="abc21" class="button" type="checkbox">
+              <span>P</span>
+            </li>
+            <li id="abc22" class="button" type="checkbox">
+              <span>R</span>
+            </li>
+            <li id="abc23" class="button" type="checkbox">
+              <span>S</span>
+            </li>
+            <li id="abc24" class="button" type="checkbox">
+              <span>Š</span>
+            </li>
+            <li id="abc25" class="button" type="checkbox">
+              <span>T</span>
+            </li>
+            <li id="abc26" class="button" type="checkbox">
+              <span>U</span>
+            </li>
+            <li id="abc27" class="button" type="checkbox">
+              <span>Ū</span>
+            </li>
+            <li id="abc28" class="button" type="checkbox">
+              <span>V</span>
+            </li>
+            <li id="abc29" class="button" type="checkbox">
+              <span>Z</span>
+            </li>
+            <li id="abc30" class="button" type="submit">
+              <span>Ž</span>
+            </li>
+          </ul>
+        </div> -->
+        <!-- KEYBOARD pabaiga  -->
+        <div></div>
+        <!-- <div class="gameComents">Game COMENTS</div> -->
+        <div>
+          <div></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footerstyle">
+      <ul>
+        <div><p>© Copyright 2022 RomzisDoo</p></div>
+      </ul>
+    </footer>
+  </body>
+</html>

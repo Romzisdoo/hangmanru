@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman</title>
+    <!-- <link rel="stylesheet" href="../templates/indexstyle.css" /> -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/indexstyle.css') }}"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head> -->
+  <body>
+    <div class="desktopBack">
+      <div class="contentBlock">
+        <div>
+          <center>
+            <h1><span style="color: #ffc700;">HANGMAN</span></h1>
+          </center>
+        </div>
+        <div class="subTitle">
+          <center>
+            <h2>
+              Lietuvių žaidimas nušauti ar
+              <span style="color: #ffc700;">pakarti</span>
+              rašistą
+              <span style="color: #ffc700;">Putiną</span>
+              .
+            </h2>
+          </center>
+        </div>
+        <div class="infoBlock">
+          <div class="slideBlock">
+            <div class="dedication">
+              <strong>
+                Vladimirai Vladimirovičiau,
+                <a
+                  href="https://www.youtube.com/watch?v=MBlaRRrkYIc"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  patinka Jums ar ne
+                </a>
+                , Jus nušaus arba pakars mokantis lietuvių kalbą! Pakentėkite,
+                jau greit.
+              </strong>
+            </div>
+            <div>
+              <center>
+                <image
+                src="{{url_for('static',filename = 'images/putin1.webp')}}"
+                width="700"
+                height="700"
+              ></image>
+              <!-- <img src="{{ user_image}}" alt=""> -->
+              <!-- <img
+                src="../images_w/16236139_web1_etoon1-march15.webp"
+                alt="Girl in a jacket"
+                width="700"
+                height="700"
+              /> -->
+              </center>
+            </div>
+          </div>
+          <div class="formBlock">
+            <div class="toPlayer">
+              <p>
+                <strong>
+                  Lietuvi, nori išbandyti Hangman ("Kartuvės") žaidimą?
+                  Prisijunk ir pakark arba nušauk rašistą Putiną!
+                </strong>
+              </p>
+            </div>
+            <div class="flash{{cat}}">{{msg}}</div>
+            <div class="formContent">
+              <h2>Registracija į žaidimą</h2>
+              <form method="POST" action="">
+                <!-- <label for="">First name*</label> -->
+                <input
+                  class="field"
+                  type="text"
+                  placeholder="Jūsų vardas"
+                  name="name"
+                />
+                <br />
+                <!-- <label for="">Last name</label> -->
+                <input
+                  class="field"
+                  type="text"
+                  placeholder="Jūsų pavardė"
+                  name="surname"
+                />
+                <br />
+                <!-- <label for="">Email</label> -->
+                <input
+                  class="field"
+                  type="email"
+                  placeholder="Jūsų elektroninis paštas"
+                  name="email"
+                />
+                <br />
+                <!-- <label for="">Password</label> -->
+                <input
+                  class="field"
+                  type="password"
+                  placeholder="Jūsų slaptažodis"
+                  name="pasword"
+                />
+                <br />
+                <!-- <label for="">Password again</label> -->
+                <input
+                  class="field"
+                  type="password"
+                  placeholder="Pakartokite slaptažodį"
+                  name="pasword2"
+                              />
+                              <br />
+                <input class="formButton" type="submit" />
+                <br />
+              </form>
+              <p class="notes">
+                Jau esate prisiregistravęs, tai prisijunkite ir žaiskite:
+              </p>
+              <a href="{{url_for('login')}}">
+                <input
+                  class="formButton"
+                  type="button"
+                  name="prisijungti"
+                  value="Prisijungti"
+                />
+              </a>
+              <br />
+              <li>
+                <a href="#">Pamiršote slaptažodį?</a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

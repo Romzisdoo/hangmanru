@@ -1,0 +1,89 @@
+/* COLOR SCHEME */
+/* Tamsiai zalia: #002d13 */
+/* geltona #ffc700 */
+/* sviesiai zalia rgb(1,87,57) */
+/* raudona: #d2222d, */
+/* http://2019.factor.ca/ */
+
+.desktopBack {
+  background-color: #002d13;
+  height: 100%;
+  width: 100%;
+}
+
+.contentBlock {
+  border: #ffc700 solid;
+}
+
+.subTitle {
+  color: white;
+}
+
+.infoBlock {
+  /* border: coral solid; */
+  display: flex;
+  /* background-color: rgb(116, 29, 29); */
+  flex-flow: column wrap;
+  flex-direction: row;
+  border: rgb(1, 87, 57) solid;
+}
+
+/* SLIDE BLOCK  */
+
+.slideBlock {
+  border: white solid;
+  min-height: 300px;
+  background-color: rgb(1, 87, 57);
+  border-radius: 20px;
+  width: 45%;
+  min-height: 300px;
+  margin: 20px;
+}
+
+.dedication {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  color: #ffc700;
+}
+/* FORM BLOCK */
+
+.formBlock {
+  border: white solid;
+  border-radius: 20px;
+  width: 48%;
+  min-height: 300px;
+  margin: 20px;
+  background-color: #ffc700;
+}
+
+.formContent {
+  padding-left: 20%;
+}
+
+.field {
+  margin-top: 20px;
+  height: 30px;
+  width: 75%;
+  border-radius: 25px;
+}
+.toPlayer {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  color: #002d13;
+}
+
+.notes {
+  margin-top: 30px;
+}
+
+.formButton {
+  margin-top: 20px;
+  height: 30px;
+  width: 25%;
+  background-color: #d2222d;
+  color: #ffc700;
+  font-weight: bold;
+  border-radius: 25px;
+}

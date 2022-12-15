@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/indexstyle.css') }}"
+    />
+  </head>
+  <body>
+    <div class="desktopBack">
+      <div class="contentBlock">
+        <div>
+          <center>
+            <h1><span style="color: #ffc700;">HANGMAN</span></h1>
+          </center>
+        </div>
+        <div class="subTitle">
+          <center>
+            <h2>
+              Lietuvių žaidimas nušauti ar
+              <span style="color: #ffc700;">pakarti</span>
+              rašistą
+              <span style="color: #ffc700;">Putiną</span>
+              .
+            </h2>
+          </center>
+        </div>
+        <div class="infoBlock">
+          <div class="slideBlock">
+            <div class="dedication">
+              <strong>
+                Vladimirai Vladimirovičiau,
+                <a
+                  href="https://www.youtube.com/watch?v=MBlaRRrkYIc"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  patinka Jums ar ne
+                </a>
+                , Jus nušaus arba pakars mokantis lietuvių kalbą! Pakentėkite,
+                jau greit.
+              </strong>
+            </div>
+            <div>
+              <center>
+                <image
+                  src="{{url_for('static',filename = 'images/putin1.webp')}}"
+                  width="700"
+                  height="700"
+                ></image>
+              </center>
+            </div>
+          </div>
+          <div class="formBlock">
+            <div class="toPlayer">
+              <p>
+                <strong>
+                  Lietuvi, nori išbandyti Hangman ("Kartuvės") žaidimą?
+                  Prisijunk ir pakark arba nušauk rašistą Putiną!
+                </strong>
+              </p>
+            </div>
+            <div class="flash{{cat}}">{{msg}}</div>
+            <div class="formContent">
+              <h2>Prisijungti į žaidimą</h2>
+              <form method="POST" action="">
+                <input
+                  class="field"
+                  aria-label="Email"
+                  type="email"
+                  placeholder="Jūsų elektroninis paštas"
+                  name="email"
+                />
+                <br />
+                <input
+                  class="field"
+                  type="password"
+                  placeholder="Jūsų slaptažodis"
+                  name="pasword"
+                />
+                <br />
+                <input
+                  class="formButton"
+                  type="submit"
+                  name="button"
+                  value="Pateikti"
+                />
+              </form>
+              <p class="notes">
+                Jei nesate prisiregistravęs, tai prisiregistruokite ir žaiskite:
+              </p>
+              <a href="{{url_for('register')}}">
+                <input
+                  class="formButton"
+                  type="button"
+                  name="submit"
+                  value="Registruotis"
+                />
+              </a>
+              <br />
+              <li>
+                <a href="#">Pamiršote slaptažodį?</a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
