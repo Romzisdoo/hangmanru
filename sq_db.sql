@@ -2,7 +2,6 @@ CREATE TABLE IF NOT EXISTS hangman_users (
             id integer PRIMARY KEY AUTOINCREMENT,
             name text,
             surname text,
-            roles text,
             email TEXT NOT NULL UNIQUE,
             pasword text,
             time integer NOT NULL

@@ -4,7 +4,7 @@ import math
 import re
 from flask import url_for
 
-class methodsMyApp:
+class MethodsMyApp:
     def __init__(self, db):
         self.__db = db
         self.__cur = db.cursor()

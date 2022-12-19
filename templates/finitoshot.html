@@ -9,9 +9,21 @@
     />
   </head>
   <body>
-    <header class="myHeader"></header>
+    <header class="myHeader">
+      <div class="profile">
+        Esate prisijungę: {% for visitor_name in current_user.get_name() %}
+        <span>{{visitor_name}}</span>
+        {% endfor %} {% for visitor_surname in current_user.get_surname() %}
+        <span>{{visitor_surname}}</span>
+        {% endfor %}
+        <a href="{{url_for('logout')}}">Atsijungti</a>
+      </div>
+    </header>
     <nav class="menubar">
       <ul>
+        <li class="active">
+          <a href="{{ url_for('profile') }}">PROFILIS</a>
+        </li>
         <li class="active">
           <a href="{{ url_for('hangman') }}">ŽAISTI DAR</a>
         </li>

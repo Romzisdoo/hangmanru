@@ -9,9 +9,21 @@
     />
   </head>
   <body>
-    <header class="myHeader"></header>
+    <header class="myHeader">
+      <div class="profile">
+        Esate prisijungę: {% for visitor_name in current_user.get_name() %}
+        <span>{{visitor_name}}</span>
+        {% endfor %} {% for visitor_surname in current_user.get_surname() %}
+        <span>{{visitor_surname}}</span>
+        {% endfor %}
+        <a href="{{url_for('logout')}}">Atsijungti</a>
+      </div>
+    </header>
     <nav class="menubar">
       <ul>
+        <li class="active">
+          <a href="{{ url_for('profile') }}">PROFILIS</a>
+        </li>
         <li class="active">
           <a href="{{ url_for('hangman') }}">ŽAISTI DAR</a>
         </li>
@@ -107,7 +119,6 @@
         </div>
         <!-- HANGMAN BLOCK PABAIGA -->
         <!-- WORD FIELD PRADZIA -->
-        <!--GAL PADES https://www.geeksforgeeks.org/retrieving-html-from-data-using-flask/ -->
         <div class="wordsField">
           <div class="inputChar">
             <form action="{{ url_for('add_char') }}" method="post">
@@ -132,101 +143,7 @@
           </div>
         </div>
         <!-- WORD FIELD PABAIGA -->
-        <!-- KEYBOARD PRADZIA  -->
-        <!-- <div class="myGameKeyboard">
-          <ul>
-            <li id="abc01" class="button" data-key="A" type="checkbox">
-              <span>A</span>
-            </li>
-            <li id="abc02" class="button" type="checkbox"><span>Ą</span></li>
-            <li id="abc03" class="button" type="checkbox"><span>B</span></li>
-            <li id="abc04" class="button" type="checkbox"><span>C</span></li>
-            <li id="abc05" class="button" type="checkbox">
-              <span>Č</span>
-            </li>
-            <li id="abc06" class="button" type="checkbox">
-              <span>D</span>
-            </li>
-            <li id="abc07" class="button" type="checkbox">
-              <span>E</span>
-            </li>
-            <li id="abc08" class="button" type="checkbox">
-              <span>Ę</span>
-            </li>
-            <li id="abc09" class="button" type="checkbox">
-              <span>Ė</span>
-            </li>
-            <li id="abc10" class="button" type="checkbox">
-              <span>F</span>
-            </li>
-            <li id="abc11" class="button" type="checkbox">
-              <span>G</span>
-            </li>
-            <li id="abc12" class="button" type="checkbox">
-              <span>H</span>
-            </li>
-            <li id="abc12" class="button" type="checkbox">
-              <span>I</span>
-            </li>
-            <li id="abc13" class="button" type="checkbox">
-              <span>Į</span>
-            </li>
-            <li id="abc14" class="button" type="checkbox">
-              <span>Y</span>
-            </li>
-            <li id="abc15" class="button" type="checkbox">
-              <span>J</span>
-            </li>
-            <li id="abc16" class="button" type="checkbox">
-              <span>K</span>
-            </li>
-            <li id="abc17" class="button" type="checkbox">
-              <span>L</span>
-            </li>
-            <li id="abc18" class="button" type="checkbox">
-              <span>M</span>
-            </li>
-            <li id="abc19" class="button" type="checkbox">
-              <span>N</span>
-            </li>
-            <li id="abc20" class="button" type="checkbox">
-              <span>O</span>
-            </li>
-            <li id="abc21" class="button" type="checkbox">
-              <span>P</span>
-            </li>
-            <li id="abc22" class="button" type="checkbox">
-              <span>R</span>
-            </li>
-            <li id="abc23" class="button" type="checkbox">
-              <span>S</span>
-            </li>
-            <li id="abc24" class="button" type="checkbox">
-              <span>Š</span>
-            </li>
-            <li id="abc25" class="button" type="checkbox">
-              <span>T</span>
-            </li>
-            <li id="abc26" class="button" type="checkbox">
-              <span>U</span>
-            </li>
-            <li id="abc27" class="button" type="checkbox">
-              <span>Ū</span>
-            </li>
-            <li id="abc28" class="button" type="checkbox">
-              <span>V</span>
-            </li>
-            <li id="abc29" class="button" type="checkbox">
-              <span>Z</span>
-            </li>
-            <li id="abc30" class="button" type="submit">
-              <span>Ž</span>
-            </li>
-          </ul>
-        </div> -->
-        <!-- KEYBOARD pabaiga  -->
         <div></div>
-        <!-- <div class="gameComents">Game COMENTS</div> -->
         <div>
           <div></div>
         </div>

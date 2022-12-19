@@ -5,16 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman</title>
-    <!-- <link rel="stylesheet" href="../templates/indexstyle.css" /> -->
+
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/indexstyle.css') }}"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head> -->
+
   <body>
     <div class="desktopBack">
       <div class="contentBlock">
@@ -57,13 +53,6 @@
                 width="700"
                 height="700"
               ></image>
-              <!-- <img src="{{ user_image}}" alt=""> -->
-              <!-- <img
-                src="../images_w/16236139_web1_etoon1-march15.webp"
-                alt="Girl in a jacket"
-                width="700"
-                height="700"
-              /> -->
               </center>
             </div>
           </div>
@@ -76,11 +65,13 @@
                 </strong>
               </p>
             </div>
-            <div class="flash{{cat}}">{{msg}}</div>
             <div class="formContent">
               <h2>Registracija į žaidimą</h2>
+              {% for cat, msg in get_flashed_messages(True) %}
+              <div class="flash {{cat}}">{{msg}}</div>
+              {% endfor %}
               <form method="POST" action="">
-                <!-- <label for="">First name*</label> -->
+               
                 <input
                   class="field"
                   type="text"
@@ -88,7 +79,7 @@
                   name="name"
                 />
                 <br />
-                <!-- <label for="">Last name</label> -->
+               
                 <input
                   class="field"
                   type="text"
@@ -96,7 +87,7 @@
                   name="surname"
                 />
                 <br />
-                <!-- <label for="">Email</label> -->
+                
                 <input
                   class="field"
                   type="email"
@@ -104,7 +95,7 @@
                   name="email"
                 />
                 <br />
-                <!-- <label for="">Password</label> -->
+                
                 <input
                   class="field"
                   type="password"
@@ -112,7 +103,7 @@
                   name="pasword"
                 />
                 <br />
-                <!-- <label for="">Password again</label> -->
+                
                 <input
                   class="field"
                   type="password"
@@ -135,9 +126,7 @@
                 />
               </a>
               <br />
-              <li>
-                <a href="#">Pamiršote slaptažodį?</a>
-              </li>
+
             </div>
           </div>
         </div>

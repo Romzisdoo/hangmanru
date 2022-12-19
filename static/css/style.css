@@ -122,13 +122,15 @@
   font-size: 40px;
 }
 input[type='text'] {
-  width: 3%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  width: 45px;
+  padding: 12px 2px;
+  margin: 0px 0;
   box-sizing: border-box;
   border: none;
+  font-size: 20px;
+
   /* background-color: rgb(1, 87, 57); */
-  color: white;
+  color: gray;
 }
 
 /* .inputLetter {
@@ -139,7 +141,6 @@ input[type='text'] {
 /* IVESTOS RAIDES LAUKO PABAIGA  */
 .myGameKeyboard {
   top: 900px;
-
   width: 100%;
   height: 64px;
   background-color: rgb(1, 87, 57);

@@ -65,9 +65,12 @@
                 </strong>
               </p>
             </div>
-            <div class="flash{{cat}}">{{msg}}</div>
+
             <div class="formContent">
               <h2>Prisijungti į žaidimą</h2>
+              {% for cat, msg in get_flashed_messages(True) %}
+              <div class="flash {{cat}}">{{msg}}</div>
+              {% endfor %}
               <form method="POST" action="">
                 <input
                   class="field"
@@ -103,9 +106,9 @@
                 />
               </a>
               <br />
-              <li>
+              <!-- <li>
                 <a href="#">Pamiršote slaptažodį?</a>
-              </li>
+              </li> -->
             </div>
           </div>
         </div>

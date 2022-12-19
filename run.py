@@ -2,13 +2,11 @@ from flask import Flask, request, g, render_template, flash, redirect, url_for, 
 import os
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, login_user, login_required
-from methodsApp import methodsMyApp
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from methods_app import MethodsMyApp
 import word_select
 from user_login import UserLogin
 
-
-# Config.
 
 DATABASE ='hangman_game.db'
 DEBUG = True
@@ -16,7 +14,6 @@ SECRET_KEY = 'ad458sla69kdu574sc'
 
 myapp = Flask(__name__)
 myapp.config.from_object(__name__)
-
 myapp.config.update(dict(DATABASE=os.path.join(myapp.root_path, 'hangman_game.db')))
 
 login_manager = LoginManager(myapp)
@@ -25,27 +22,24 @@ login_manager.login_view = 'login'
 imageFolder = os.path.join("static", "images")
 myapp.config['UPLOAD_FOLDER'] = imageFolder
 
-#Hangman Game config
 secret_word = None
 word_set = None
 to_display = None
 tries = None
 blanks = None
 
-# Uzkrauname klase, kaskart kai vykdoma vartotojo uzklausa (Flask login modulis nustato, koks useris sesijoje)
+
 @login_manager.user_loader
 def load_user(user_id):
-    print("load_user")
-    return UserLogin().fromDB(user_id, dbase)
+    print("load_user") 
+    return UserLogin().from_db(user_id, dbase)
 
-# Jungiamasi su DB 
 def conect_db():
     conn=sqlite3.connect(myapp.config['DATABASE'])
     conn.row_factory=sqlite3.Row
     return conn
 
 def create_db():
-    # Pagalbine priemone sukuriand db lenteles
     db = conect_db()
     with myapp.open_resource('sq_db.sql', mode='r') as f:
         db.cursor().executescript(f.read())
@@ -55,31 +49,27 @@ def create_db():
 dbase = None
 @myapp.before_request
 def before_request():
-    # Ryšio su DB nustatymas ir sujungimas prieš užklausos vykdymą (KREIPIAMASI I GLOBALU KINTAMAJI 'dbase')
     global dbase
     db = get_db()
-    dbase = methodsMyApp(db)
+    dbase = MethodsMyApp(db)
 
 def get_db():
-    # Sujungti su DB jei tai dar nenustatyta, jei nera susijungta su db
     if not hasattr(g, 'link_db'):
         g.link_db=conect_db()
     return g.link_db
 
 @myapp.teardown_appcontext
 def close_db(error):
-    # Klaidos atveju nutraukiame susijungima su DB
     if hasattr(g, 'link_db'):
         g.link_db.close()
 
-#to game
 @myapp.after_request
 def set_response_headers(response):
 
     response.headers['Expires'] = '0'
     return response
 
-# HTML PUSLAPIŲ DEKORATORIAI:
+
 @myapp.route("/")
 def welcome():   
     return render_template("index.html")
@@ -115,6 +105,25 @@ def login():
 
     return render_template("login.html")
 
+@myapp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash("Jūs atsijungėte", "succes")
+    return redirect(url_for('login'))
+
+@myapp.route('/profile')
+@login_required
+def profile():
+    return f"""<p><a href="{url_for('logout')}">Atsijungti</a>
+    <p>Sveikinam prisijungus:{current_user.get_name()} {current_user.get_surname()}
+    <p> Jūsų spėjamas žodis: {secret_word}
+    <p> Jūsų atspėtos raidės žaidime: {to_display}
+    <p> Liko atspėti: {blanks} raid'es(-žių)
+    <p> Jūsų neteisingi spėjimai: {tries}
+    <p> Jūsų nepanaudotos spėjimams raidės: {word_set}
+    <p> """
+
 @myapp.route("/hangman")
 @login_required
 def hangman():
@@ -122,7 +131,7 @@ def hangman():
 	global word_set
 	global to_display
 	global tries
-	global blanks	
+	global blanks
 	secret_word = word_select.get_random_word()
 	word_set = "aąbcčdeęėfghiįjklmnopqrsštuųūvzž"
 	blanks = 0
@@ -130,7 +139,6 @@ def hangman():
 	for item,char in enumerate(secret_word):
 		if char==" ":
 			to_display.append(" ")
-			
 		else:
 			to_display.append("_")
 			blanks+=1

@@ -87,3 +87,16 @@
   font-weight: bold;
   border-radius: 25px;
 }
+
+/* Flsask Flash messages  */
+.flash {
+  padding: 10px;
+}
+.flash.success {
+  border: 1px #002d13;
+  background: rgb(1, 87, 57);
+}
+.flash.error {
+  border: 1px #d2222d;
+  background: #d2222d;
+}
